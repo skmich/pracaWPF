@@ -1,0 +1,50 @@
+﻿<Window x:Class="PracaWPF.Rejestracja"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PracaWPF"
+        mc:Ignorable="d"
+        Title="Rejestracja" Height="450" Width="400" Background="Teal">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Imię: " Grid.Row="0" Grid.Column="0" Margin="3"/>
+        <TextBox x:Name="name" Grid.Row="0" Grid.Column="1" Margin="3"/>
+
+        <Label Content="Nazwisko: " Grid.Row="1" Grid.Column="0" Margin="3"/>
+        <TextBox x:Name="surname" Grid.Row="1" Grid.Column="1" Margin="3"/>
+
+        <Label Content="Data urodzenia: " Grid.Row="2" Grid.Column="0" Margin="3"/>
+        <TextBox x:Name="birthdate" Grid.Row="2" Grid.Column="1" Margin="3"/>
+
+        <Label Content="Mail: " Grid.Row="3" Grid.Column="0" Margin="3"/>
+        <TextBox x:Name="mail" Grid.Row="3" Grid.Column="1" Margin="3"/>
+
+        <Label Content="Numer telefonu: " Grid.Row="4" Grid.Column="0" Margin="3"/>
+        <TextBox x:Name="phone" Grid.Row="4" Grid.Column="1" Margin="3"/>
+
+        <Label Content="Hasło: " Grid.Row="5" Grid.Column="0" Margin="3"/>
+        <TextBox x:Name="password" Grid.Row="5" Grid.Column="1" Margin="3"/>
+
+        <Label Content="Powturz hasło: " Grid.Row="6" Grid.Column="0" Margin="3"/>
+        <TextBox x:Name="passwordRepeat" Grid.Row="6" Grid.Column="1" Margin="3"/>
+
+        <CheckBox x:Name="admin" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Margin="3">Czy jest administratorem?</CheckBox>
+
+        <Button x:Name="confirmation" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Margin="3" Width="200" Background="Teal" Click="confirmation_Click">Zarejestruj</Button>
+    </Grid>
+</Window>

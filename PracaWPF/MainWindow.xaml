@@ -1,0 +1,17 @@
+﻿<Window x:Class="PracaWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PracaWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="250" Width="400"
+        Background="Teal">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Label Content="Logowanie" FontSize="30" HorizontalAlignment="Center"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20">
+            <Button Click="goToLogowanie" FontSize="20" Margin="20" Background="LightSteelBlue">Zaloguj</Button>
+            <Button Click="goToRejestracja" FontSize="20" Margin="20" Background="LightSteelBlue">Zarejestruj</Button>
+        </StackPanel>
+    </StackPanel>
+</Window>
