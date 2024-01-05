@@ -7,8 +7,12 @@
         mc:Ignorable="d"
         Title="Menu" Height="450" Width="700" Background="Teal">
     <StackPanel>
-        <Button x:Name="newJobBut" Margin="8" Width="200" Background="Teal" Click="goToNowaPraca">Dodaj ofertę</Button>
-        <ListView x:Name="offersLiist" SelectionMode="Single">
+        <StackPanel Orientation="Horizontal">
+            <Button x:Name="newJobBut" Margin="8" Width="200" Background="Teal" Click="goToNowaPraca">Dodaj ofertę</Button>
+            <Button x:Name="delJobBut" Margin="8" Width="200" Background="Teal" Click="delJobBut_Click">Usuń ofertę</Button>
+            <Button x:Name="usersBut" Margin="8" Width="200" Background="Teal" Click="goToUser">Użytkownicy</Button>
+        </StackPanel>
+        <ListView x:Name="offersLiist" SelectionMode="Single" MouseDoubleClick="offersLiist_MouseDoubleClick">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Title}" Header="Title" Width="auto"/>

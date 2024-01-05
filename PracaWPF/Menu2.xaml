@@ -1,0 +1,28 @@
+﻿<Window x:Class="PracaWPF.Menu2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PracaWPF"
+        mc:Ignorable="d"
+        Title="Menu" Height="450" Width="700" Background="Teal">
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Button x:Name="delUserBut" Margin="8" Width="200" Background="Teal" Click="delUserBut_Click">Usuń użytkownika</Button>
+            <Button x:Name="offerssBut" Margin="8" Width="200" Background="Teal" Click="goToOffer">Oferty</Button>
+        </StackPanel>
+        <ListView x:Name="usersList" SelectionMode="Single" MouseDoubleClick="usersList_MouseDoubleClick">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Header="Name" Width="auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Surname}" Header="Surname" Width="auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=BirthDate}" Header="BirthDate" Width="auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Mail}" Header="Mail" Width="auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Telephone}" Header="Telephone" Width="auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Password}" Header="Password" Width="auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=IsAdmin}" Header="IsAdmin" Width="auto"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </StackPanel>
+</Window>

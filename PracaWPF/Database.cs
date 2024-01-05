@@ -171,5 +171,95 @@ namespace PracaWPF
             }
             return entries;
         }
+
+        public static void DeleteOffer(Offer offer)
+        {
+            string dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "DataBase.db");
+
+            using (var db = new SqliteConnection($"Filename={dbpath}"))
+            {
+                db.Open();
+                var deleteCommand = new SqliteCommand();
+                deleteCommand.Connection = db;
+                deleteCommand.CommandText = "DELETE FROM offer WHERE offer_id=@Id";
+
+                deleteCommand.Parameters.AddWithValue("@Id", offer.OfferId);
+                deleteCommand.ExecuteNonQuery();
+            }
+        }
+
+        public static void DeleteUser(User user)
+        {
+            string dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "DataBase.db");
+
+            using (var db = new SqliteConnection($"Filename={dbpath}"))
+            {
+                db.Open();
+                var deleteCommand = new SqliteCommand();
+                deleteCommand.Connection = db;
+                deleteCommand.CommandText = "DELETE FROM user WHERE user_id=@Id";
+
+                deleteCommand.Parameters.AddWithValue("@Id", user.Id);
+                deleteCommand.ExecuteNonQuery();
+            }
+        }
+
+        public static Offer OfferInfo(int id)
+        {
+            Offer offer = null;
+            string dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "DataBase.db");
+
+            using (var db = new SqliteConnection($"Filename={dbpath}"))
+            {
+                db.Open();
+                string query = "SELECT * FROM offer WHERE offer_id=@Id";
+                var selectCommand = new SqliteCommand(query, db);
+                selectCommand.Parameters.AddWithValue("@Id", id);
+
+                SqliteDataReader reader = selectCommand.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    offer = new Offer();
+                    offer.OfferId = reader.GetInt32(0);
+                    offer.Title = reader.GetString(1);
+                    offer.Position = reader.GetString(2);
+                    offer.Payment = reader.GetInt32(3);
+                    offer.WorkHours = reader.GetString(4);
+                    offer.Responsibilities = reader.GetString(5);
+                    offer.Requirements = reader.GetString(6);
+                }
+            }
+            return offer;
+        }
+
+        public static User UserInfo(int id)
+        {
+            User user = null;
+            string dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "DataBase.db");
+
+            using (var db = new SqliteConnection($"Filename={dbpath}"))
+            {
+                db.Open();
+                string query = "SELECT * FROM user WHERE user_id=@Id";
+                var selectCommand = new SqliteCommand(query, db);
+                selectCommand.Parameters.AddWithValue("@Id", id);
+
+                SqliteDataReader reader = selectCommand.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    user = new User();
+                    user.Id = reader.GetInt32(0);
+                    user.Name = reader.GetString(1);
+                    user.Surname = reader.GetString(2);
+                    user.BirthDate = reader.GetString(3);
+                    user.Mail = reader.GetString(4);
+                    user.Telephone = reader.GetInt32(5);
+                    user.Password = reader.GetString(6);
+                }
+            }
+            return user;
+        }
     }
 }
